@@ -42,29 +42,34 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 Developed by: Janani G
 RegisterNumber:24009971
 ```
-module exp6(T,clk,Q,Qbar);
-input T,clk;
-output reg Q;
-output reg Qbar;
-initial Q=0;
-initial Qbar=1;
+module exp6(s,r,clk,q,qbar);
+input s,r,clk;
+output reg q;
+output reg qbar;
+initial 
+begin
+q=0;
+qbar=1;
+end
 always @(posedge clk)
-begin 
-Q=(T&(~Q))|((~T)&Q);
-Qbar=~Q;
+begin
+   q=s|(~r&q);
+   qbar=r|(~s&~q);
 end
 endmodule
+
 */
 ```
 
 **RTL LOGIC FOR FLIPFLOPS**
 
-![Screenshot 2024-12-03 175924](https://github.com/user-attachments/assets/a3196f47-cd52-4200-984d-e4fdcf9c01eb)
+![Screenshot 2024-12-24 173721](https://github.com/user-attachments/assets/bafbec0b-4b41-45c8-803c-7829a4c17924)
+
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
-![Screenshot 2024-12-03 180406](https://github.com/user-attachments/assets/54c90be7-7942-4ffa-b1fb-9f7e2797fef6)
+![Screenshot 2024-12-24 173708](https://github.com/user-attachments/assets/914b9eef-62c9-4f01-b67d-ff4e84598123)
 
 
 **RESULT**
